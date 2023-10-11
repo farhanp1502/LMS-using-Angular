@@ -1,0 +1,19 @@
+
+<section>
+  <div class="add-holidays-container">
+    <h2 class="add-holidays-title">Add Holidays</h2>
+    <form #addHolidaysForm="ngForm" class="add-holidays-form" (ngSubmit)="addholiday()">
+      <div class="form-group">
+        <input type="date" placeholder="Date" id="Date" name="Date" required ngModel>
+      </div>
+  
+      <div class="form-group">
+        <textarea id="reason" placeholder="Reason" name="reason" rows="4" cols="50" required ngModel></textarea>
+      </div>
+  
+      <div class="button-container">
+        <input type="submit" value="Submit" class="submit-button">
+      </div>
+    </form>
+  </div>
+</section>

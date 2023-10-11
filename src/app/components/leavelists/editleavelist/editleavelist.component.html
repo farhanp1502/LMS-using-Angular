@@ -1,0 +1,31 @@
+<section>
+  <div class="edit-leave-form-container">
+    <h2 class="edit-leave-form-title">Edit Leave Request</h2>
+    <form #editLeaveForm="ngForm" class="edit-leave-form" (ngSubmit)="editleave()">
+      <div class="form-group">
+        <label for="leaveDate"> From Date:</label>
+        <input type="date" id="fromdate" name="fromdate" required ngModel>
+      </div>
+  
+      <div class="form-group">
+        <label for="leaveDate">To Date:</label>
+        <input type="date" id="todate" name="todate" required ngModel>
+      </div>
+
+      <input type="text" id="name" name="name" hidden [(ngModel)]="name">
+  
+      <input type="text" id="status" name="status" hidden [(ngModel)]="status">
+
+      <input type="number" id="userid" name="userid" hidden  [(ngModel)]="userid">
+  
+      <div class="form-group">
+        <textarea id="reason" placeholder="Reason" name="reason" rows="4" cols="50" required ngModel></textarea>
+      </div>
+  
+      <div class="button-container">
+        <input type="submit" value="Update" class="update-button">
+      </div>
+    </form>
+  </div>
+</section>
+

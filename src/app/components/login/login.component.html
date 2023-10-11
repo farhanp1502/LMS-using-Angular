@@ -1,0 +1,28 @@
+
+<section>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="email" id="email"  placeholder="Email" name="email" ngModel required>
+      </div>
+  
+  
+      <div class="form-group">
+        <select id="role" name="role" ngModel required aria-placeholder="Role">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <input type="password" id="password" name="password" placeholder="Password" ngModel required>
+      </div>
+  
+      <div class="button-container">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</section>
+

@@ -1,0 +1,39 @@
+<section>
+<div class="nav">
+  <a routerLink="/dashboard">LMS</a>
+</div>
+<div class="main">
+  <div class="user-container">
+
+    <div class="head">
+      <h1>User</h1>
+      <div class="user-controls">
+        <input type="text" [(ngModel)]="searchinput" (input)="ngOnInit()" placeholder="Search User">
+        <button class="btn-add-user" (click)="adduserlink()">+ Add User</button>
+      </div>
+    </div>
+    <div class="users">
+      <table> 
+        <tr>
+          <th>Email</th>
+          <th>Name</th>
+          <th>Status</th>
+        </tr>
+        <ng-container *ngFor="let user of users">
+  <!-- search functionality -->
+          <tr *ngIf="searchinput === ' ' || user.name.toLowerCase().includes(searchinput)">
+            <td>{{user.email}}</td>
+            <td>{{user.name}}</td>
+            <td >
+              <button class="btn btn-success" (click)="onedituser(user)">Edit</button>
+              <button class="btn btn-danger" (click)="ondelete(user)">Delete</button>
+            </td>
+          </tr>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+  
+</div>
+ 
+</section>

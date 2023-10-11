@@ -1,0 +1,21 @@
+
+<section>
+  <div class="edit-holidays-container">
+    <h2 class="edit-holidays-title">Edit Holiday</h2>
+    <form #editHolidaysForm="ngForm" class="edit-holidays-form" (ngSubmit)="editHoliday()">
+      <div class="form-group">
+        
+        <input type="date" placeholder="Date" id="Date" name="Date" required ngModel>
+      </div>
+  
+      <div class="form-group">
+
+        <textarea id="reason" placeholder="Reason" name="reason" rows="4" cols="50" required ngModel></textarea>
+      </div>
+  
+      <div class="button-container">
+        <input type="submit" value="Update" class="update-button">
+      </div>
+    </form>
+  </div>
+</section>

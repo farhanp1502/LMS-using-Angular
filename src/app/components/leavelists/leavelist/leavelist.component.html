@@ -1,0 +1,60 @@
+<div class="nav">
+    <a routerLink="/dashboard">LMS</a>
+  </div>
+  <section>
+
+      <div class="page-container">
+      
+        <h1>Leave Manager</h1>
+        
+        
+        <div class="btn-container">
+            <button class="filter-btn" (click)="addLeave()">Add Leave</button>
+        </div>
+        
+        <!-- Table to display leaves -->
+        <table>
+            <thead>
+                <tr>
+                    <th>fromdate</th>
+                    <th>todate</th>
+                    <th>Reason</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="user.role == 'admin'">
+                <ng-container *ngFor="let leave of leavelist ">
+        
+                    <tr >
+                        <td>{{ leave.fromdate }}</td>
+                        <td>{{ leave.todate }}</td>
+                        <td>{{ leave.reason }}</td>
+                        <td >{{ leave.status }}</td>
+                        <td *ngIf="leave.status === 'pending'">
+                            <button class="btn btn-success" (click)="editLeave(leave)">Edit</button>
+                            <button class="btn btn-danger" (click)="deleteLeave(leave)">Delete</button>
+                        </td>
+                    </tr>
+                </ng-container>
+                
+            </tbody>
+            <tbody *ngIf="user.role == 'user'">
+              <ng-container *ngFor="let leave of filteredleaves ">
+      
+                  <tr >
+                      <td>{{ leave.fromdate }}</td>
+                      <td>{{ leave.todate }}</td>
+                      <td>{{ leave.reason }}</td>
+                      <td  >{{ leave.status }}</td>
+                      <td *ngIf="leave.status === 'pending'">
+                          <button class="btn btn-success" (click)="editLeave(leave)">Edit</button>
+                          <button class="btn btn-danger" (click)="deleteLeave(leave)">Delete</button>
+                      </td>
+                  </tr>
+              </ng-container>
+              
+          </tbody>
+        </table>
+      </div>
+  </section>

@@ -1,0 +1,63 @@
+/* Style for the navigation bar */
+nav.navbar {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 10vh;
+}
+
+/* Style for the logo */
+div.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #21abce;
+  text-transform: capitalize;
+  font-family: 'Dela Gothic One', cursive;
+}
+
+/* Style for the logo text */
+span.logo-text {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+
+/* Style for the navigation links */
+ul.nav-links1 {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+ul.nav-links2 {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+/* Style for the navigation link items */
+li {
+  margin-right: 20px;
+}
+.nav-links1 li a{
+  text-decoration: none;
+  color: #6b6666b0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.nav-links1 li a:hover{
+  color: #6b6666;
+}
+
+
+.nav-links2 li a{
+  background-color: red;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.nav-links2 li a:hover{
+  cursor: pointer;
+}

@@ -1,0 +1,37 @@
+<div class="nav">
+  <a routerLink="/dashboard">LMS</a>
+</div>
+<section>
+  <div class="leave-update-container">
+    <p>Leave Update!</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>From Date</th>
+          <th>To Date</th>
+          <th>Reason</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let leave of leaves">
+  
+          <tr *ngIf="leave.status === 'pending'">
+            <td>{{ leave.name }}</td>
+            <td>{{ leave.fromdate }}</td>
+            <td>{{ leave.todate }}</td>
+            <td>{{ leave.reason }}</td>
+            <td >{{ leave.status }}</td>
+            <td *ngIf="leave.status === 'pending'">
+              <button class="approve-button" (click)="onapprove(leave)" >Approve</button>
+              <button class="reject-button" (click)="onreject(leave)" >Reject</button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+  
+</section>

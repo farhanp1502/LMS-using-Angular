@@ -1,0 +1,67 @@
+{
+  "users": [
+    {
+      "email": "user1@gmail.com",
+      "role": "user",
+      "password": "user1",
+      "userid": 974,
+      "id": 1,
+      "name": "user1",
+      "status": "logged out"
+    },
+    {
+      "email": "admin@gmail.com",
+      "role": "admin",
+      "password": "admin",
+      "id": 3,
+      "name": "admin",
+      "status": "logged out"
+    },
+    {
+      "name": "Farhan",
+      "email": "farhan123@gmail.com",
+      "userid": 175,
+      "role": "user",
+      "status": "logged out",
+      "password": "far123",
+      "id": 5
+    }
+  ],
+  "holidays": [
+    {
+      "Date": "2023-10-02",
+      "reason": "gandhi jayati",
+      "id": 3
+    },
+    {
+      "Date": "2023-09-18",
+      "reason": "ganesha chaturthi...",
+      "id": 4
+    },
+    {
+      "Date": "2023-10-17",
+      "reason": "dasserhaaaa",
+      "id": 5
+    }
+  ],
+  "leavelist": [
+    {
+      "fromdate": "2023-09-22",
+      "todate": "2023-09-24",
+      "reason": "marrige",
+      "status": "rejected",
+      "userid": 974,
+      "name": "user1",
+      "id": 3
+    },
+    {
+      "fromdate": "2023-09-16",
+      "todate": "2023-09-23",
+      "status": "rejected",
+      "userid": 974,
+      "name": "user1",
+      "reason": "xyzabc",
+      "id": 4
+    }
+  ]
+}

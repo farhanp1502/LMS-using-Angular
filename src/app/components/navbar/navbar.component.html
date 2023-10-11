@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <div class="logo">
+    <span class="logo-text">leave management system</span>
+  </div>
+  <ul class="nav-links1">
+    <li *ngIf="logoutuser.role === 'admin'"><a routerLink="/user">Employee</a></li>
+    <li ><a routerLink="/holidays">Holidays</a></li>
+    <li *ngIf="logoutuser.role === 'user'"><a routerLink="/leaverequest">Leave Request</a></li>
+    <li *ngIf="logoutuser.role === 'admin'"><a routerLink="/leaveupdate">Leave Update</a></li>
+  </ul>
+  <ul class="nav-links2">
+    <li>Hey {{logoutuser.name}} !!</li>
+    <li><a (click)="logout()">Logout</a></li>
+  </ul>
+</nav>

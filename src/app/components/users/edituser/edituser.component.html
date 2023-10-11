@@ -1,0 +1,31 @@
+<section>
+
+  <div class="update-user-container">
+    <h2 class="update-user-header">Update User</h2>
+    <form #updateUserForm="ngForm" class="update-user-form" (ngSubmit)="onUpdateUser()">
+      <div class="form-group">
+        <input type="text" id="name" placeholder="Name" name="name" ngModel required>
+      </div>
+  
+      <div class="form-group">
+        <input type="email" placeholder="Email" id="email" name="email" ngModel required>
+      </div>
+  
+      <input type="number" id="userid" name="userid" hidden [(ngModel)]="currentuserid" >
+  
+      <input type="number" id="role" name="role" hidden [(ngModel)]="currentrole" >
+  
+      <input type="number" id="status" name="status" hidden [(ngModel)]="currentstatus" >
+  
+  
+      <div class="form-group">
+        <input type="password" placeholder="Password" id="password" name="password" ngModel required>
+      </div>
+  
+      <div class="button-container">
+        <button class="update-button" type="submit">Update</button>
+      </div>
+    </form>
+  </div>
+</section>
+

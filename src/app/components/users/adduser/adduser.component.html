@@ -1,0 +1,30 @@
+<section>
+
+  <div class="registration-container">
+    <h2 class="registration-header">User Registration</h2>
+    <form #userloginform="ngForm" class="registration-form" (ngSubmit)="onlogin(userloginform)">
+      <div class="form-group">
+        <input type="text" id="name" name="name" placeholder="Name" ngModel required>
+      </div>
+  
+        <input type="text" id="userid" name="userid" hidden [(ngModel)]="userid" required>
+  
+        <input type="text" id="status" name="status" hidden [(ngModel)]="status" required>
+  
+        <input type="text" id="role" name="role" hidden [(ngModel)]="role" required>
+  
+      <div class="form-group">
+        <input type="email" id="email" placeholder="Email" name="email" ngModel required>
+      </div>
+  
+      <div class="form-group">
+        <input type="password" placeholder="Password" id="password" name="password" ngModel required>
+      </div>
+  
+      <div class="button-container">
+        <button class="registration-button" type="submit">Register</button>
+        <button class="exit-button" (click)="exitform()">Exit</button>
+      </div>
+    </form>
+  </div>
+</section>

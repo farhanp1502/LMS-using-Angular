@@ -1,0 +1,48 @@
+<div class="nav">
+  <a routerLink="/dashboard">LMS</a>
+</div>
+<section>
+  <div class="page-container">
+    <h1>Holiday Planner</h1>
+  
+    <!-- Filter Button -->
+    <div class="btn-container">
+        <button class="filter-btn" (click)="filterHolidays()">Filter by date</button>
+        <button class="filter-btn" *ngIf="user.role == 'admin'" (click)="addholiday()">Add Holidays</button>
+    </div>
+    
+    <!-- Table to display holidays -->
+    <table>
+        <thead>
+            <tr>
+                <th> Date</th>
+                <th>Reason</th>
+                <th *ngIf="user.role == 'admin'" ></th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let holiday of holidays ">
+    
+                <tr *ngIf="!filterclicked">
+                  <td>{{holiday.Date}}</td>
+                  <td>{{holiday.reason}}</td>
+                  <td *ngIf="user.role == 'admin'">
+                    <button class="btn btn-success" (click)="oneditholiday(holiday)">Edit</button>
+                    <button class="btn btn-danger" (click)="ondeleteholiday(holiday)">Delete</button>
+                  </td>
+                </tr>
+            </ng-container>
+            <ng-container *ngFor="let holiday of filteredHolidays" >
+                <tr *ngIf="filterclicked">
+                    <td>{{holiday.Date}}</td>
+                    <td>{{holiday.reason}}</td>
+                    <td *ngIf="user.role == 'admin'">
+                      <button class="btn btn-success" (click)="oneditholiday(holiday)">Edit</button>
+                      <button class="btn btn-danger" (click)="ondeleteholiday(holiday)">Delete</button>
+                    </td>
+                  </tr>
+            </ng-container>
+        </tbody>
+    </table>
+  </div>
+</section>
