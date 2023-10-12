@@ -9,6 +9,7 @@ import { loginuser } from '../models/loginuser.model';
 export class MainserviceService {
 
   constructor(private http:HttpClient) { }
+  isauth:boolean = false;
   users: user[]=[];
   loggeduser:loginuser={
     email: '',
@@ -57,5 +58,11 @@ export class MainserviceService {
   //     }
   //   })
   }
-  
+
+  getauthentication(data:boolean){
+    this.isauth = data;
+  }
+  isauthentication(){
+    return this.isauth;
+  }
 }

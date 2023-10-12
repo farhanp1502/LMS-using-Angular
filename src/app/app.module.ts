@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { FooterComponent } from './components/footer/footer.component';
     DashboardComponent,
     NavbarComponent,
     FooterComponent,
+    NotfoundComponent,
    
   ],
   imports: [

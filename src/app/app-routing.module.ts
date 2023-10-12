@@ -13,12 +13,14 @@ import { LeaveupdateComponent } from './components/leaveupdate/leaveupdate.compo
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthGuard } from './auth.guard';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
   {path:'home/login',component:LoginComponent},
-  {path:'dashboard',component:DashboardComponent},
+  {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]},
   {path:'user' , component:UserComponent},
   {path:'adduser',component:AdduserComponent},
   {path:'edituser',component:EdituserComponent},
@@ -29,6 +31,7 @@ const routes: Routes = [
   {path:'addleavelist',component:AddleavelistComponent},
   {path:'editleavelist',component:EditleavelistComponent},
   {path:'leaveupdate',component:LeaveupdateComponent},
+  { path: '**', component: NotfoundComponent }
 ];
 
 @NgModule({

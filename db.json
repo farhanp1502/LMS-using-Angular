@@ -7,7 +7,7 @@
       "userid": 974,
       "id": 1,
       "name": "user1",
-      "status": "logged out"
+      "status": "logged in"
     },
     {
       "email": "admin@gmail.com",
@@ -15,7 +15,7 @@
       "password": "admin",
       "id": 3,
       "name": "admin",
-      "status": "logged out"
+      "status": "logged in"
     },
     {
       "name": "Farhan",

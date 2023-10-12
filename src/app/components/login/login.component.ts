@@ -12,63 +12,105 @@ import { MainserviceService } from 'src/app/services/mainservice.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private mainservice:MainserviceService,private router:Router){}
-  @ViewChild('loginForm') loginForm!:NgForm;
+  constructor(private mainservice: MainserviceService, private router: Router) { }
+  @ViewChild('loginForm') loginForm!: NgForm;
+  successfulloggedin: boolean = false; 
+  isauth:boolean = false;
 
   registeredusers: user[] = [];
-  loginuserinfo:user={
+  loginuserinfo: user = {
     email: '',
     role: '',
     password: '',
     userid: '',
-    name:'',
-    status:'',
-    
+    name: '',
+    status: '',
   }
   loginuser: loginuser = {
     email: '',
     role: '',
     password: '',
     userid: '',
-    name:'',
-    status:'',
-    
+    name: '',
+    status: '',
   };
 
-
-
-  ngOnInit() {
+  ngAfterViewInit() {
     this.mainservice.getusersforlogin().subscribe((response) => {
       this.registeredusers = response;
-      this.registeredusers.find((res)=>{
-       res.status === 'logged in'
-      })
+      // You can set successfulloggedin to true if a user is already logged in
+      this.registeredusers.find((res) => {
+        if (res.status === 'logged in') {
+          this.successfulloggedin = true;
+        }
+      });
     });
     this.mainservice.getusersfromdata(this.loginuserinfo);
+    
   }
 
+  // onSubmit() {
+  //   this.loginuser = this.loginForm.value;
+  //   this.loginuserfunction(this.loginuser);
+  //   if(this.successfulloggedin){
+  //     // this.isauth = true;
+  //     // this.mainservice.getauthentication(this.isauth);
+  //     this.mainservice.updateuserstatuslogin(this.loginuser.id, this.loginuser);
+
+  //     alert('login successful');
+  //     this.mainservice.getloggeduser(this.loginuser);
+  //     this.router.navigate(['/dashboard']);
+
+  //   }
+  //   else{
+  //     alert('login failed')
+  //     this.loginForm.reset();
+  //   }
+  // }
+
+  // loginuserfunction(loginuser: loginuser): boolean {
+  //   for (const user of this.registeredusers) {
+  //     if (user.email === loginuser.email && user.password === loginuser.password && user.role === loginuser.role) {
+  //       loginuser.userid = user.userid;
+  //       loginuser.id = user.id;
+  //       loginuser.name = user.name;
+  //       loginuser.status = 'logged in';
+  //       this.successfulloggedin = true;
+  //       return this.successfulloggedin;
+  //     }
+  //   }
+  //   return false; 
+  // }
+  
   onSubmit() {
     this.loginuser = this.loginForm.value;
-    this.loginuserfunction(this.loginuser);
-    this.mainservice.updateuserstatuslogin(this.loginuser.id,this.loginuser)
-    alert('login successful');
-    this.mainservice.getloggeduser(this.loginuser);
-    this.router.navigate(['/dashboard']);
-
+    const loginSuccessful = this.loginuserfunction(this.loginuser);
+  
+    if (loginSuccessful) {
+      this.mainservice.updateuserstatuslogin(this.loginuser.id, this.loginuser);
+      alert('Login successful');
+      this.mainservice.getloggeduser(this.loginuser);
+      this.router.navigate(['/dashboard']);
+    } else {
+      alert('Login failed'); // Display a login failed message
+      this.loginForm.reset();
+    }
   }
-
-  loginuserfunction(loginuser: loginuser) {
+  
+  loginuserfunction(loginuser: loginuser): boolean {
     for (const user of this.registeredusers) {
       if (user.email === loginuser.email && user.password === loginuser.password && user.role === loginuser.role) {
         loginuser.userid = user.userid;
         loginuser.id = user.id;
         loginuser.name = user.name;
         loginuser.status = 'logged in';
-
-        return; 
+        this.isauth = true;
+      this.mainservice.getauthentication(this.isauth);
+        this.successfulloggedin = true;
+        return true; // Return true when login is successful
       }
-    
     }
+    return false; // Return false when login fails
   }
-
+  
 }
